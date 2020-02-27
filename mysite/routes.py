@@ -8,3 +8,7 @@ def hello_world():
 @app.route('/index')
 def index():
     return render_template('index.html', title='Index Page')
+
+@app.route('/test')
+def test():
+    return render_template('test.html', title='Testing Page')
