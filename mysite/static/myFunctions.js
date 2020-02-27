@@ -1,6 +1,6 @@
 const myQuestions = [
   {
-    question: "What dinosaur had wings?",
+    question: "1. What dinosaur had wings?",
     answers: {
       a: "Aerodactyl",
       b: "T-rex",
@@ -9,7 +9,7 @@ const myQuestions = [
     correctAnswer: "a"
   },
   {
-    question: "When did dinosaus become extinxt",
+    question: "2. When did dinosaus become extinxt",
     answers: {
       a: "10 million years ago",
       b: "Yesterday",
@@ -18,7 +18,7 @@ const myQuestions = [
     correctAnswer: "a"
   },
   {
-    question: "dino?",
+    question: "3. dino?",
     answers: {
       a: "yes",
       b: "no",
@@ -53,6 +53,7 @@ function buildQuiz(){
             <input type="radio" name="question${questionNumber}" value="${letter}">
             ${letter} :
             ${currentQuestion.answers[letter]}
+            <br>
           </label>`
         );
       }
@@ -61,7 +62,7 @@ function buildQuiz(){
       output.push(
         `<div class="question"> ${currentQuestion.question} </div>
         <div class="answers"> ${answers.join('')} </div>
-        <p>hello</p>`
+        <p><br></p>`
       );
     }
   );
