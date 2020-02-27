@@ -1,29 +1,29 @@
 const myQuestions = [
   {
-    question: "Who invented JavaScript?",
+    question: "What dinosaur had wings?",
     answers: {
-      a: "Douglas Crockford",
-      b: "Sheryl Sandberg",
-      c: "Brendan Eich"
+      a: "Aerodactyl",
+      b: "T-rex",
+      c: "Asauraus"
     },
-    correctAnswer: "c"
+    correctAnswer: "a"
   },
   {
-    question: "Which one of these is a JavaScript package manager?",
+    question: "When did dinosaus become extinxt",
     answers: {
-      a: "Node.js",
-      b: "TypeScript",
-      c: "npm"
+      a: "10 million years ago",
+      b: "Yesterday",
+      c: "1 billion years ago"
     },
-    correctAnswer: "c"
+    correctAnswer: "a"
   },
   {
-    question: "Which tool can you use to ensure code quality?",
+    question: "dino?",
     answers: {
-      a: "Angular",
-      b: "jQuery",
-      c: "RequireJS",
-      d: "ESLint"
+      a: "yes",
+      b: "no",
+      c: "maybe",
+      d: "saur"
     },
     correctAnswer: "d"
   }
@@ -60,7 +60,8 @@ function buildQuiz(){
       // add this question and its answers to the output
       output.push(
         `<div class="question"> ${currentQuestion.question} </div>
-        <div class="answers"> ${answers.join('')} </div>`
+        <div class="answers"> ${answers.join('')} </div>
+        <p>hello</p>`
       );
     }
   );

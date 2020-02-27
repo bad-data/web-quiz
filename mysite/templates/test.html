@@ -1,8 +1,43 @@
 <html>
 
+    <style>
+        
+        body {background-color: lightgray;}
+
+        .spfontncenter {
+            text-align: center;
+            font-family: Verdana;
+            color: black;
+            font-size: 40px;
+        }
+
+        .centered {
+            text-align: center;
+        }
+
+        .triviaButton {
+            font-family: Verdana;
+            align-content: center;
+            font-size: 20px;
+            background-color: #297;
+            color: #fff;
+            border: 0px;
+            border-radius: 3px;
+            padding: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .triviaButton:hover {
+            background-color: white;
+            color: black
+        }
+        
+    </style>
+
 <body>
-    <div id="quiz"></div>
-    <button id="submit">Submit Quiz</button>
+    <div id="quiz" class="spfontncenter"></div>
+    <p class="centered"><button id="submit" class="triviaButton">Submit Quiz</button></p>
     <div id="results"></div>
   </body>
 
