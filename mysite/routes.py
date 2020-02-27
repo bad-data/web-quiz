@@ -1,5 +1,5 @@
 from flask_app import app
-from flask import redirect, url_for
+from flask import redirect, url_for, render_template
 
 @app.route('/')
 def hello_world():
@@ -7,4 +7,4 @@ def hello_world():
 
 @app.route('/index')
 def index():
-    return 'Home Page!'
+    return render_template('index.html', title='Index Page')
