@@ -104,5 +104,5 @@ function showResults(){
   resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
 
-buildQuiz()
+buildQuiz();
 submitButton.addEventListener('click', showResults);
