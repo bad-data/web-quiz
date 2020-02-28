@@ -32,5 +32,5 @@ def test():
             numberCorrect += 1
             print(numberCorrect)
         print(numberCorrect)
-        return render_template('index.html', title="Progress Page", numCorrect=numberCorrect)
+        return render_template('report.html', title="Progress Page", numCorrect=numberCorrect)
     return render_template('test.html', title='Testing Page', form=form)

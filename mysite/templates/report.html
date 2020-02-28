@@ -1,0 +1,58 @@
+<html>
+
+<style>
+  
+  body {background-color: lightgray;}
+
+    .spfontncenter {
+        text-align: center;
+        font-family: Verdana;
+        color: black;
+    }
+
+    .centered {
+            text-align: center;
+        }
+
+        .triviaButton {
+            font-family: Verdana;
+            align-content: center;
+            font-size: 20px;
+            background-color: #297;
+            color: #fff;
+            border: 0px;
+            border-radius: 3px;
+            padding: 20px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .triviaButton:hover {
+            background-color: white;
+            color: black
+        }
+</style>
+    <body>
+        {% block content %}
+        <h1 class="spfontncenter">Trivia Results</h1><br><br>
+        <p class="spfontncenter">
+        Nice Job you got a {{ numCorrect }} out of 5!
+        </p>
+        <br>
+        <p class="centered">
+        <button id="myButton2" class="triviaButton" >New Attempt</button>
+
+            <script type="text/javascript">
+                document.getElementById("myButton2").onclick = function () {
+                    location.href = "/";
+                };
+            </script>
+            </p>
+
+            <p class="centered">
+
+                <img src="static/dinopic.jpg">
+            </p>
+            {% endblock %}
+    </body>
+</html>
