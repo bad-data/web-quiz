@@ -34,3 +34,7 @@ def test():
         print(numberCorrect)
         return render_template('report.html', title="Progress Page", numCorrect=numberCorrect)
     return render_template('test.html', title='Testing Page', form=form)
+
+@app.route('/testing')
+def testing():
+    return render_template('base.html')
