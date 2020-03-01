@@ -15,15 +15,9 @@
                 <p class="spfontncenter">
                     During your mini golfing adventure, you learned many facts about our ancient scaly friends<br>
                     click below to start a trivia quiz!
-                </p>
-                <p class="centered">
-                <button id="myButton" class="triviaButton" >Start Quiz</button>
-            
-                <script type="text/javascript">
-                    document.getElementById("myButton").onclick = function () {
-                        location.href = "/test";
-                    };
-                </script>
+                    <form action="" method="post" novalidate>
+                    <p class="centered">{{ form.submit(class_="triviaButton") }}</p>
+                    </form>
                 </p>
             </div>
         </div>

@@ -1,10 +1,14 @@
 from flask_app import app
 from flask import redirect, url_for, render_template
-from forms import quizForm
+from forms import quizForm, submitForm
 
-@app.route('/')
+@app.route('/', methods=['POST','GET'])
 def index():
-    return render_template('index.html', title='Index Page')
+    form = submitForm()
+    if form.is_submitted():
+        print('true')
+        return redirect(url_for('test'))
+    return render_template('index.html', title='Index Page', form=form)
 
 @app.route('/test', methods=['POST','GET'])
 def test():

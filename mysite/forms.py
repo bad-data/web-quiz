@@ -9,3 +9,6 @@ class quizForm(FlaskForm):
     question4 = RadioField('4. How many years ago did dinosaurs go extinct', choices=[('10million','10 Million'),('yesterday','Yesterday'),('1billion','1 Billion'),('100thousand','100 Thousand')])
     question5 = RadioField('5. Which dinosaur was at hole #6?', choices=[('trex','T-Rex'),('aerodactyl','Aerodactyl'),('velociraptor','Velociraptor'),('longneck','Long Neck')])
     submit = SubmitField('Submit Quiz')
+
+class submitForm(FlaskForm):
+    submit = SubmitField('Start Quiz')
