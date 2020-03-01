@@ -3,26 +3,30 @@
 
     {% block content %}
     <body >
-        <br><br><br><br>
-    <h1 class="spfontncenter">
-        Fun-n-Stuff Dinosaur Trivia
-    </h1>
-    <p class="spfontncenter">
-        During your mini golfing adventure, you learned many facts about our ancient scaly friends<br>
-        click below to start a trivia quiz!
-    </p>
-    <br>
-    <p class="centered">
-    <button id="myButton" class="triviaButton" >Start Quiz</button>
-
-    <script type="text/javascript">
-        document.getElementById("myButton").onclick = function () {
-            location.href = "/test";
-        };
-    </script>
-
-    </p>
-
+        <div class="row">
+            <div class="leftcolumn">
+                    <img src="static/LostKingdomLogoWithDinos.png" width="600px" height="600px">
+            </div>
+            <div class="rightcolumn">
+                <h1 class="spfontncenter">
+                    <br><br>
+                    Fun-n-Stuff Dinosaur Trivia
+                </h1>
+                <p class="spfontncenter">
+                    During your mini golfing adventure, you learned many facts about our ancient scaly friends<br>
+                    click below to start a trivia quiz!
+                </p>
+                <p class="centered">
+                <button id="myButton" class="triviaButton" >Start Quiz</button>
+            
+                <script type="text/javascript">
+                    document.getElementById("myButton").onclick = function () {
+                        location.href = "/test";
+                    };
+                </script>
+                </p>
+            </div>
+        </div>
     </body>
     {% endblock%}
 </html>

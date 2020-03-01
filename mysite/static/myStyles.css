@@ -1,5 +1,12 @@
 
-body {background-color: white;}
+body {
+    background-color: white;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
 
 /* Clear floats after the columns */
 .row:after {
@@ -12,23 +19,16 @@ body {background-color: white;}
 /* Left column */
 .leftcolumn {   
     float: left;
-    width:25%;
-  }
-  
-/* Add a card effect for articles */
-.card {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 15px;
+    width:50%;
+    position: relative; left:30px;
   }
 
   /* Right column */
   .rightcolumn {
     float: left;
-    width: 75%;
-    background-color: #f1f1f1;
-    padding-left: 20px;
+    width: 50%;
+    background-color: white;
+    position: relative; right:70px;
   }
 
 
@@ -63,7 +63,17 @@ body {background-color: white;}
 
 /* Footer */
 .footer {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 5px;
   }
+
+
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
