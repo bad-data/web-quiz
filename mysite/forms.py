@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, RadioField
 from wtforms.validators import DataRequired
+import helper
 
 class quizForm(FlaskForm):
     question1 = RadioField('1. Which dinosaur was known for it\'s wings?', choices=[('trex','T-Rex'),('aerodactyl','Aerodactyl'),('velociraptor','Velociraptor'),('longneck','Long Neck')])

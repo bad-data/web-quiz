@@ -6,7 +6,6 @@ from forms import quizForm, submitForm
 def index():
     form = submitForm()
     if form.is_submitted():
-        print('true')
         return redirect(url_for('test'))
     return render_template('index.html', title='Index Page', form=form)
 
