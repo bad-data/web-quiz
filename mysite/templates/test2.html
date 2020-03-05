@@ -1,0 +1,57 @@
+<html>
+
+    {% extends "base.html" %}
+
+    {% block content %}
+    <body>
+    <h1 class="spfontncenter"> Dinosaur Trivia Quiz</h1>
+    <h2 class="spfontncenter"> Questions </h2>
+    <form action="" method="post" novalidate>
+        <p class="spfontncenter">
+
+            {{ accessibleQuiz.questions[0].label }}
+
+            <br>
+            
+            {% for item in question1 %}
+
+            <input type="radio" name="q1" value= {{ item }} >
+            <label for="male"> {{ item }} </label><br>
+
+            {% endfor %}
+        </p>
+        <p class="spfontncenter">
+
+            {{ accessibleQuiz.questions[1].label }}
+
+            <br>
+            
+            {% for item in question2 %}
+
+            <input type="radio" name="q2" value= {{ item }} >
+            <label for="male"> {{ item }} </label><br>
+
+            {% endfor %}
+        </p>
+        <p class="spfontncenter">
+
+            {{ accessibleQuiz.questions[2].label }}
+
+            <br>
+
+            {% for item in question3 %}
+
+            <input type="radio" name="q3" value= {{ item }} >
+            <label for="male"> {{ item }} </label><br>
+
+            {% endfor %}
+        </p>
+        <p class="centered">
+            <input class="triviaButton" type="submit" value="Submit">
+        </p>
+    </form>
+  </body>
+
+  {% endblock %}
+
+</html>

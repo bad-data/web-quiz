@@ -5,54 +5,22 @@
     {% block content %}
     <body>
     <h1 class="spfontncenter"> Dinosaur Trivia Quiz</h1>
+    <h2 class="spfontncenter"> Question #{{ qNumber + 1 }} </h2>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p class="spfontncenter">
-            {{ form.question1.label }}<br>
-            {% for subfield in form.question1 %}
+            {{ test['questions'][qNumber]['answers'] }}
+
+            <br>
+
+            {{ form.question.label }}<br>
+            {% for subfield in form.question.choices %}
             <tr>
                 <td>{{ subfield }}</td>
                 <td>{{ subfield.label }}</td><br>
             </tr>
             {% endfor %}
-        </p>
-        <p class="spfontncenter">
-            {{ form.question2.label }}<br>
-            {% for subfield in form.question2 %}
-            <tr>
-                <td>{{ subfield }}</td>
-                <td>{{ subfield.label }}</td><br>
-            </tr>
-            {% endfor %}
-        </p>
-        <p class="spfontncenter">
-            {{ form.question3.label }}<br>
-            {% for subfield in form.question3 %}
-            <tr>
-                <td>{{ subfield }}</td>
-                <td>{{ subfield.label }}</td><br>
-            </tr>
-            {% endfor %}
-        </p>
-        <p class="spfontncenter">
-            {{ form.question4.label }}<br>
-            {% for subfield in form.question4 %}
-            <tr>
-                <td>{{ subfield }}</td>
-                <td>{{ subfield.label }}</td><br>
-            </tr>
-            {% endfor %}
-        </p>
-        <p class="spfontncenter">
-            {{ form.question5.label }}<br>
-            {% for subfield in form.question5 %}
-            <tr>
-                <td>{{ subfield }}</td>
-                <td>{{ subfield.label }}</td><br>
-            </tr>
-            {% endfor %}
-        </p>
-        <p class="centered">{{ form.submit(class_="triviaButton") }}</p>
+        <p class="centered">{{ form.nextQuestion(class_="triviaButton") }}</p>
     </form>
   </body>
 

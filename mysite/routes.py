@@ -1,18 +1,60 @@
 from flask_app import app
-from flask import redirect, url_for, render_template
-from forms import quizForm, submitForm
+from flask import redirect, url_for, render_template, request, session
+from forms import quizForm, submitForm, questionForm, onePageQuizForm
+from helper import Quiz, Question, serializeQuiz, makeQuiz
 
 @app.route('/', methods=['POST','GET'])
 def index():
     form = submitForm()
     if form.is_submitted():
-        return redirect(url_for('test'))
+        return redirect(url_for('createquiz'))
     return render_template('index.html', title='Index Page', form=form)
 
-@app.route('/test', methods=['POST','GET'])
-def test():
+@app.route('/createquiz')
+def createquiz():
+    triviaQuiz = makeQuiz()
+    passableQuiz = serializeQuiz(triviaQuiz)
+    questionNumber = 0
+    return redirect(url_for('test2', quiz=passableQuiz))
+
+@app.route('/test/<quiz>', defaults={'qNumber': 0}, methods=['POST','GET'])
+@app.route('/test/<quiz>/<qNumber>', methods=['POST','GET'])
+def test(quiz,qNumber):
+    form = questionForm()
+    qNumberInt= int(qNumber)
+    accessibleQuiz = deserializeQuiz(quiz)
+    choicesList = []
+    #fill choices list of tuples with same values as answer name ("T-Rex","T-Rex")
+    for elem in accessibleQuiz['questions'][qNumberInt]['answers']:
+        newChoice = (str(elem),str(elem))
+        choicesList.append(newChoice)
+    print(choicesList)
+    if form.validate_on_submit(): # Next Question Button Hit
+        print('Question submitted')
+        if qNumberInt > 9:
+            # process data and stuff for quiz
+            return redirect(url_for('index'))
+        else:
+            # update accesibleQuiz Obj user_answers, move question number up one
+            accessibleQuiz['user_answers'].append(form.question.choices.data)
+            qNumberInt = qNumberInt + 1
+            form.question.choices = choicesList
+            quiz = serializeQuiz(accessibleQuiz)
+            return redirect(url_for('test.html', quiz=quiz, qNumber=qNumberInt))
+    else:
+        form.question.choices = choicesList
+        return render_template('test.html', form=form, test=accessibleQuiz, qNumber=qNumberInt)
+
+@app.route('/testing')
+def testing():
+    return render_template('base.html')
+
+@app.route('/oldtest/<qnumber>', methods=['POST','GET'])
+def oldtest(qnumber):
+    #triviaQuiz = Quiz()
+    #triviaQuiz.makeQuiz()
+    numberCorrect = 0
     form = quizForm()
-    numberCorrect=0
     if form.validate_on_submit():
         print(form.question1.data)
         if form.question1.data == "aerodactyl":
@@ -38,6 +80,45 @@ def test():
         return render_template('report.html', title="Progress Page", numCorrect=numberCorrect)
     return render_template('test.html', title='Testing Page', form=form)
 
-@app.route('/testing')
-def testing():
-    return render_template('base.html')
+@app.route('/test2', methods=['POST'])
+@app.route('/test2/<quiz>', methods=['POST','GET'])
+#@app.route('/test2/<quiz>/<qNumber>', methods=['POST','GET'])
+def test2(quiz):
+    if request.method == 'POST':
+        # if form submitted, 
+        print(quiz)
+        #quiz['user_answers'][0].append(request.form['q1'])
+        #quiz['user_answers'][1].append(request.form['q2'])
+        #quiz['user_answers'][2].append(request.form['q3'])
+        #print(quiz['user_answers'])
+        return redirect(url_for('index'))
+    else:
+        #print(quiz)
+        QuizObject = Quiz.deserializeQuiz(quiz)
+        print(QuizObject)
+        questionList = []
+        for item in QuizObject.questions:
+            questionList.append(item)
+        print(questionList)
+        #QuizObject.printAnswerKey()
+        #QuizObject.printQuestions()
+        # Now QuizObject is current updated instance of Quiz user is taking
+        question1 = []
+        question2 = []
+        question3 = []
+        for elem in QuizObject.questions[0].answers:
+            newChoice = elem
+            question1.append(newChoice)
+        for elem in QuizObject.questions[1].answers:
+            newChoice = elem
+            question2.append(newChoice)
+        for elem in QuizObject.questions[2].answers:
+            newChoice = elem
+            question3.append(newChoice)
+        #print(question1)
+        #print(question2)
+        #print(question3)
+        passableQuiz = serializeQuiz(QuizObject)
+        #print(passableQuiz)
+        return render_template('test2.html', question1=question1, question2=question2,question3=question3, accessibleQuiz=QuizObject)
+        #return redirect(url_for('index'))
