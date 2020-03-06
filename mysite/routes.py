@@ -14,8 +14,8 @@ def index():
 def createquiz():
     triviaQuiz = makeQuiz()
     passableQuiz = serializeQuiz(triviaQuiz)
-    questionNumber = 0
-    return redirect(url_for('test2', quiz=passableQuiz))
+    session['quiz'] = passableQuiz
+    return redirect(url_for('test2'))
 
 @app.route('/test/<quiz>', defaults={'qNumber': 0}, methods=['POST','GET'])
 @app.route('/test/<quiz>/<qNumber>', methods=['POST','GET'])
@@ -80,28 +80,29 @@ def oldtest(qnumber):
         return render_template('report.html', title="Progress Page", numCorrect=numberCorrect)
     return render_template('test.html', title='Testing Page', form=form)
 
-@app.route('/test2', methods=['POST'])
-@app.route('/test2/<quiz>', methods=['POST','GET'])
+@app.route('/test2', methods=['POST','GET'])
+#@app.route('/test2/<quiz>', methods=['POST','GET'])
 #@app.route('/test2/<quiz>/<qNumber>', methods=['POST','GET'])
-def test2(quiz):
+def test2():
+    QuizObject = Quiz.deserializeQuiz(session['quiz'])
     if request.method == 'POST':
         # if form submitted, 
-        print(quiz)
-        #quiz['user_answers'][0].append(request.form['q1'])
-        #quiz['user_answers'][1].append(request.form['q2'])
-        #quiz['user_answers'][2].append(request.form['q3'])
-        #print(quiz['user_answers'])
-        return redirect(url_for('index'))
+        QuizObject.user_answers.append(request.form["q1"])
+        QuizObject.user_answers.append(request.form["q2"])
+        QuizObject.user_answers.append(request.form["q3"])
+        for elem in QuizObject.user_answers:
+            print(elem)
+        index = 0
+        while index < QuizObject.size:
+            if QuizObject.answer_key[index] == QuizObject.user_answers[index]:
+                QuizObject.grade = QuizObject.grade + 1
+            index = index + 1
+        grade= QuizObject.grade
+        return render_template('graded.html', grade=grade)
     else:
-        #print(quiz)
-        QuizObject = Quiz.deserializeQuiz(quiz)
-        print(QuizObject)
         questionList = []
         for item in QuizObject.questions:
             questionList.append(item)
-        print(questionList)
-        #QuizObject.printAnswerKey()
-        #QuizObject.printQuestions()
         # Now QuizObject is current updated instance of Quiz user is taking
         question1 = []
         question2 = []
@@ -115,10 +116,7 @@ def test2(quiz):
         for elem in QuizObject.questions[2].answers:
             newChoice = elem
             question3.append(newChoice)
-        #print(question1)
-        #print(question2)
-        #print(question3)
-        passableQuiz = serializeQuiz(QuizObject)
-        #print(passableQuiz)
+        #cleanCopy = serializeQuiz(QuizObject)
+        #print(path)
         return render_template('test2.html', question1=question1, question2=question2,question3=question3, accessibleQuiz=QuizObject)
         #return redirect(url_for('index'))
