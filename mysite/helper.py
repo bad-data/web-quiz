@@ -84,7 +84,7 @@ def makeQuiz():
     # pick x random non-repeating numbers in range 0-question pool size
     taken = []
     while len(taken) < quizSize:
-        qID = randrange(5)  # qID will hold int 0-4 , int 5 needs to be same as size of question pool in database
+        qID = randrange(28)  # qID will hold int 0-4 , int 5 needs to be same as size of question pool in database
         while qID in taken:
             qID = randrange(5)
         taken.append(qID)
