@@ -7,7 +7,9 @@
     <h1 class="spfontncenter"> Dinosaur Trivia Quiz</h1>
     <h2 class="spfontncenter"> Questions </h2>
     <form action="" method="post" novalidate>
-        <p class="spfontncenter">
+        <div class=slideshow-container>
+        <div class=mySlides>
+            <p class="spfontncenter">
 
             {{ accessibleQuiz.questions[0].label }}
 
@@ -19,8 +21,10 @@
             <label for="male"> {{ item }} </label><br>
 
             {% endfor %}
-        </p>
-        <p class="spfontncenter">
+            </p>
+        </div>
+        <div class=mySlides>
+            <p class="spfontncenter">
 
             {{ accessibleQuiz.questions[1].label }}
 
@@ -28,27 +32,40 @@
             
             {% for item in question2 %}
 
-            <input type="radio" name="q2" value= {{ item }} >
+            <input type="radio" name="q1" value= {{ item }} >
             <label for="male"> {{ item }} </label><br>
 
             {% endfor %}
-        </p>
-        <p class="spfontncenter">
+            </p>
+        </div>
+        <div class=mySlides>
+            <p class="spfontncenter">
 
             {{ accessibleQuiz.questions[2].label }}
 
             <br>
-
+            
             {% for item in question3 %}
 
-            <input type="radio" name="q3" value= {{ item }} >
+            <input type="radio" name="q1" value= {{ item }} >
             <label for="male"> {{ item }} </label><br>
 
             {% endfor %}
+            </p>
+        </div>
+        <p centered>
+        <button class="triviaButton" id="next">Next Question</button>
         </p>
+        <p>
+            <a onclick="plusSlides(-1)">Previous</a>
+            <a onclick="plusSlides(1)">Next</a>
+        </p>
+        </div>
         <p class="centered">
             <input class="triviaButton" type="submit" value="Submit">
         </p>
+        <script src="static/myFunctions.js">
+        </script>
     </form>
   </body>
 

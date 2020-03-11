@@ -118,5 +118,5 @@ def test2():
             question3.append(newChoice)
         #cleanCopy = serializeQuiz(QuizObject)
         #print(path)
-        return render_template('test2.html', question1=question1, question2=question2,question3=question3, accessibleQuiz=QuizObject)
+        return render_template('quiz.html', question1=question1, question2=question2,question3=question3, accessibleQuiz=QuizObject)
         #return redirect(url_for('index'))
