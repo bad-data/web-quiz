@@ -78,7 +78,7 @@ def makeQuiz():
     # make all variables needed to fill for constructor
     quizAnswer_key = []
     quizGrade = 0
-    quizSize = 3
+    quizSize = 10
     quizQuestions = []  # this will be a list full of Question objects
     quizUser_Answers = []
     # pick x random non-repeating numbers in range 0-question pool size

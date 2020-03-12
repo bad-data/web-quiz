@@ -90,6 +90,13 @@ def test2():
         QuizObject.user_answers.append(request.form["q1"])
         QuizObject.user_answers.append(request.form["q2"])
         QuizObject.user_answers.append(request.form["q3"])
+        QuizObject.user_answers.append(request.form["q4"])
+        QuizObject.user_answers.append(request.form["q5"])
+        QuizObject.user_answers.append(request.form["q6"])
+        QuizObject.user_answers.append(request.form["q7"])
+        QuizObject.user_answers.append(request.form["q8"])
+        QuizObject.user_answers.append(request.form["q9"])
+        QuizObject.user_answers.append(request.form["q10"])
         for elem in QuizObject.user_answers:
             print(elem)
         index = 0
@@ -107,6 +114,13 @@ def test2():
         question1 = []
         question2 = []
         question3 = []
+        question4 = []
+        question5 = []
+        question6 = []
+        question7 = []
+        question8 = []
+        question9 = []
+        question10 = []
         for elem in QuizObject.questions[0].answers:
             newChoice = elem
             question1.append(newChoice)
@@ -116,7 +130,28 @@ def test2():
         for elem in QuizObject.questions[2].answers:
             newChoice = elem
             question3.append(newChoice)
+        for elem in QuizObject.questions[3].answers:
+            newChoice = elem
+            question4.append(newChoice)
+        for elem in QuizObject.questions[4].answers:
+            newChoice = elem
+            question5.append(newChoice)
+        for elem in QuizObject.questions[5].answers:
+            newChoice = elem
+            question6.append(newChoice)
+        for elem in QuizObject.questions[6].answers:
+            newChoice = elem
+            question7.append(newChoice)
+        for elem in QuizObject.questions[7].answers:
+            newChoice = elem
+            question8.append(newChoice)
+        for elem in QuizObject.questions[8].answers:
+            newChoice = elem
+            question9.append(newChoice)
+        for elem in QuizObject.questions[9].answers:
+            newChoice = elem
+            question10.append(newChoice)
         #cleanCopy = serializeQuiz(QuizObject)
         #print(path)
-        return render_template('quiz.html', question1=question1, question2=question2,question3=question3, accessibleQuiz=QuizObject)
+        return render_template('quiz.html', question1=question1, question2=question2,question3=question3,question4=question4,question5=question5,question6=question6,question7=question7,question8=question8,question9=question9,question10=question10, accessibleQuiz=QuizObject)
         #return redirect(url_for('index'))
