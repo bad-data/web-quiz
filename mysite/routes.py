@@ -17,69 +17,6 @@ def createquiz():
     session['quiz'] = passableQuiz
     return redirect(url_for('takequiz'))
 
-@app.route('/test/<quiz>', defaults={'qNumber': 0}, methods=['POST','GET'])
-@app.route('/test/<quiz>/<qNumber>', methods=['POST','GET'])
-def test(quiz,qNumber):
-    form = questionForm()
-    qNumberInt= int(qNumber)
-    accessibleQuiz = deserializeQuiz(quiz)
-    choicesList = []
-    #fill choices list of tuples with same values as answer name ("T-Rex","T-Rex")
-    for elem in accessibleQuiz['questions'][qNumberInt]['answers']:
-        newChoice = (str(elem),str(elem))
-        choicesList.append(newChoice)
-    print(choicesList)
-    if form.validate_on_submit(): # Next Question Button Hit
-        print('Question submitted')
-        if qNumberInt > 9:
-            # process data and stuff for quiz
-            return redirect(url_for('index'))
-        else:
-            # update accesibleQuiz Obj user_answers, move question number up one
-            accessibleQuiz['user_answers'].append(form.question.choices.data)
-            qNumberInt = qNumberInt + 1
-            form.question.choices = choicesList
-            quiz = serializeQuiz(accessibleQuiz)
-            return redirect(url_for('test.html', quiz=quiz, qNumber=qNumberInt))
-    else:
-        form.question.choices = choicesList
-        return render_template('test.html', form=form, test=accessibleQuiz, qNumber=qNumberInt)
-
-@app.route('/testing')
-def testing():
-    return render_template('base.html')
-
-@app.route('/oldtest/<qnumber>', methods=['POST','GET'])
-def oldtest(qnumber):
-    #triviaQuiz = Quiz()
-    #triviaQuiz.makeQuiz()
-    numberCorrect = 0
-    form = quizForm()
-    if form.validate_on_submit():
-        print(form.question1.data)
-        if form.question1.data == "aerodactyl":
-            numberCorrect += 1
-            print(numberCorrect)
-        print(form.question2.data)
-        if form.question2.data == "f":
-            numberCorrect += 1
-            print(numberCorrect)
-        print(form.question3.data)
-        if form.question3.data == "trex":
-            numberCorrect += 1
-            print(numberCorrect)
-        print(form.question4.data)
-        if form.question4.data == "10million":
-            numberCorrect += 1
-            print(numberCorrect)
-        print(form.question5.data)
-        if form.question5.data == "velociraptor":
-            numberCorrect += 1
-            print(numberCorrect)
-        print(numberCorrect)
-        return render_template('report.html', title="Progress Page", numCorrect=numberCorrect)
-    return render_template('test.html', title='Testing Page', form=form)
-
 @app.route('/takequiz', methods=['POST','GET'])
 #@app.route('/test2/<quiz>', methods=['POST','GET'])
 #@app.route('/test2/<quiz>/<qNumber>', methods=['POST','GET'])

@@ -1,0 +1,174 @@
+routes.py old snippets:
+
+@app.route('/test/<quiz>', defaults={'qNumber': 0}, methods=['POST','GET'])
+@app.route('/test/<quiz>/<qNumber>', methods=['POST','GET'])
+def test(quiz,qNumber):
+    form = questionForm()
+    qNumberInt= int(qNumber)
+    accessibleQuiz = deserializeQuiz(quiz)
+    choicesList = []
+    #fill choices list of tuples with same values as answer name ("T-Rex","T-Rex")
+    for elem in accessibleQuiz['questions'][qNumberInt]['answers']:
+        newChoice = (str(elem),str(elem))
+        choicesList.append(newChoice)
+    print(choicesList)
+    if form.validate_on_submit(): # Next Question Button Hit
+        print('Question submitted')
+        if qNumberInt > 9:
+            # process data and stuff for quiz
+            return redirect(url_for('index'))
+        else:
+            # update accesibleQuiz Obj user_answers, move question number up one
+            accessibleQuiz['user_answers'].append(form.question.choices.data)
+            qNumberInt = qNumberInt + 1
+            form.question.choices = choicesList
+            quiz = serializeQuiz(accessibleQuiz)
+            return redirect(url_for('test.html', quiz=quiz, qNumber=qNumberInt))
+    else:
+        form.question.choices = choicesList
+        return render_template('test.html', form=form, test=accessibleQuiz, qNumber=qNumberInt)
+
+@app.route('/testing')
+def testing():
+    return render_template('base.html')
+
+@app.route('/oldtest/<qnumber>', methods=['POST','GET'])
+def oldtest(qnumber):
+    #triviaQuiz = Quiz()
+    #triviaQuiz.makeQuiz()
+    numberCorrect = 0
+    form = quizForm()
+    if form.validate_on_submit():
+        print(form.question1.data)
+        if form.question1.data == "aerodactyl":
+            numberCorrect += 1
+            print(numberCorrect)
+        print(form.question2.data)
+        if form.question2.data == "f":
+            numberCorrect += 1
+            print(numberCorrect)
+        print(form.question3.data)
+        if form.question3.data == "trex":
+            numberCorrect += 1
+            print(numberCorrect)
+        print(form.question4.data)
+        if form.question4.data == "10million":
+            numberCorrect += 1
+            print(numberCorrect)
+        print(form.question5.data)
+        if form.question5.data == "velociraptor":
+            numberCorrect += 1
+            print(numberCorrect)
+        print(numberCorrect)
+        return render_template('report.html', title="Progress Page", numCorrect=numberCorrect)
+    return render_template('test.html', title='Testing Page', form=form)
+
+templates and stuff
+
+<html>
+
+    {% extends "base.html" %}
+
+    {% block content %}
+    <body>
+    <h1 class="spfontncenter"> Dinosaur Trivia Quiz</h1>
+    <h2 class="spfontncenter"> Question #{{ qNumber + 1 }} </h2>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p class="spfontncenter">
+            {{ test['questions'][qNumber]['answers'] }}
+
+            <br>
+
+            {{ form.question.label }}<br>
+            {% for subfield in form.question.choices %}
+            <tr>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td><br>
+            </tr>
+            {% endfor %}
+        <p class="centered">{{ form.nextQuestion(class_="triviaButton") }}</p>
+    </form>
+  </body>
+
+  {% endblock %}
+
+</html>
+ 
+
+ // new one
+
+ <html>
+
+    {% extends "base.html" %}
+
+    {% block content %}
+    <body>
+    <h1 class="spfontncenter"> Dinosaur Trivia Quiz</h1>
+    <h2 class="spfontncenter"> Questions </h2>
+    <form action="" method="post" novalidate>
+        <div class=slideshow-container>
+        <div class=mySlides>
+            <p class="spfontncenter">
+
+            {{ accessibleQuiz.questions[0].label }}
+
+            <br>
+            
+            {% for item in question1 %}
+
+            <input type="radio" name="q1" value= {{ item }} >
+            <label for="male"> {{ item }} </label><br>
+
+            {% endfor %}
+            </p>
+        </div>
+        <div class=mySlides>
+            <p class="spfontncenter">
+
+            {{ accessibleQuiz.questions[1].label }}
+
+            <br>
+            
+            {% for item in question2 %}
+
+            <input type="radio" name="q1" value= {{ item }} >
+            <label for="male"> {{ item }} </label><br>
+
+            {% endfor %}
+            </p>
+        </div>
+        <div class=mySlides>
+            <p class="spfontncenter">
+
+            {{ accessibleQuiz.questions[2].label }}
+
+            <br>
+            
+            {% for item in question3 %}
+
+            <input type="radio" name="q1" value= {{ item }} >
+            <label for="male"> {{ item }} </label><br>
+
+            {% endfor %}
+            </p>
+        </div>
+        <p centered>
+        <button class="triviaButton" id="next">Next Question</button>
+        </p>
+        <p>
+            <a onclick="plusSlides(-1)">Previous</a>
+            <a onclick="plusSlides(1)">Next</a>
+        </p>
+        </div>
+        <p class="centered">
+            <input class="triviaButton" type="submit" value="Submit">
+        </p>
+        <script src="static/myFunctions.js">
+        </script>
+    </form>
+  </body>
+
+  {% endblock %}
+
+</html>
