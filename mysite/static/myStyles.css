@@ -17,6 +17,22 @@ body {
 
 /* Create two unequal columns that floats next to each other */
 /* Left column */
+.leftcolumn4Quiz {   
+  float: left;
+  width:60%;
+  /* position: relative; left:30px; */
+}
+
+/* Right column */
+.rightcolumn4Quiz {
+  float: left;
+  width: 40%;
+  background-color: white;
+  /* position: relative; right:70px; */
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
 .leftcolumn {   
     float: left;
     width:50%;
@@ -44,6 +60,13 @@ body {
     font-family: Verdana;
     color: black;
     font-size: 40px;
+}
+
+.spfontncenterLabel {
+  text-align: center;
+  font-family: Verdana;
+  color: black;
+  font-size: 36px;
 }
 
 .centered {
@@ -88,7 +111,6 @@ body {
     text-align: center;
     margin-top: 5px;
   }
-
 
 /* Slideshow container */
 .slideshow-container {
