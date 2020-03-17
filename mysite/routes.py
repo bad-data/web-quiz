@@ -15,7 +15,7 @@ def createquiz():
     triviaQuiz = makeQuiz()
     passableQuiz = serializeQuiz(triviaQuiz)
     session['quiz'] = passableQuiz
-    return redirect(url_for('test2'))
+    return redirect(url_for('takequiz'))
 
 @app.route('/test/<quiz>', defaults={'qNumber': 0}, methods=['POST','GET'])
 @app.route('/test/<quiz>/<qNumber>', methods=['POST','GET'])
@@ -80,10 +80,10 @@ def oldtest(qnumber):
         return render_template('report.html', title="Progress Page", numCorrect=numberCorrect)
     return render_template('test.html', title='Testing Page', form=form)
 
-@app.route('/test2', methods=['POST','GET'])
+@app.route('/takequiz', methods=['POST','GET'])
 #@app.route('/test2/<quiz>', methods=['POST','GET'])
 #@app.route('/test2/<quiz>/<qNumber>', methods=['POST','GET'])
-def test2():
+def takequiz():
     QuizObject = Quiz.deserializeQuiz(session['quiz'])
     if request.method == 'POST':
         # if form submitted, 

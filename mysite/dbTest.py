@@ -11,6 +11,9 @@ atable = db.table('answer_sets')
 # correct add answer_sets table format
 # atable.insert({'id': 5, 'a1': "Brachiosaurus", 'a2': "Tyrannosaurus-Rex", 'a3': "Spinosaurus", 'a4': "Triceratops"})
 
+qtable.remove(doc_ids=[1,2,3,4])
+atable.remove(doc_ids=[1,2,3,4])
+
 #atable.all()
 #for row in atable:
     #print(row)
