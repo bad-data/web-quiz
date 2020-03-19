@@ -2,6 +2,7 @@ from flask_app import app
 from flask import redirect, url_for, render_template, request, session
 from forms import quizForm, submitForm, questionForm, onePageQuizForm
 from helper import Quiz, Question, serializeQuiz, makeQuiz
+import os
 
 @app.route('/', methods=['POST','GET'])
 def index():
@@ -58,6 +59,22 @@ def takequiz():
         question8 = []
         question9 = []
         question10 = []
+        picPathLists = [] # this will be a list of dictionaires, holding exists and path values
+        itr = 0
+        while itr < QuizObject.size:
+            if QuizObject.questions[itr].picture_path != "None":
+                elemPicturePath = "static/pictures/" + QuizObject.questions[itr].picture_path
+                if os.path.exists(elemPicturePath):
+                    print("it exists")
+                    listItem = {"exists":"yes","path":str(elemPicturePath)}
+                    picPathLists.append(listItem)
+                else:
+                    print("not here")
+            else:
+                listItem = {"exists":"no","path":"None"}
+                picPathLists.append(listItem)
+            itr += 1
+        print(picPathLists)
         for elem in QuizObject.questions[0].answers:
             newChoice = elem
             question1.append(newChoice)
@@ -90,5 +107,5 @@ def takequiz():
             question10.append(newChoice)
         #cleanCopy = serializeQuiz(QuizObject)
         #print(path)
-        return render_template('quiz.html', question1=question1, question2=question2,question3=question3,question4=question4,question5=question5,question6=question6,question7=question7,question8=question8,question9=question9,question10=question10, accessibleQuiz=QuizObject)
+        return render_template('quiz.html', question1=question1, question2=question2,question3=question3,question4=question4,question5=question5,question6=question6,question7=question7,question8=question8,question9=question9,question10=question10, accessibleQuiz=QuizObject,picPaths = picPathLists)
         #return redirect(url_for('index'))
