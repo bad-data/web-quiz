@@ -63,9 +63,10 @@ def takequiz():
         itr = 0
         while itr < QuizObject.size:
             if QuizObject.questions[itr].picture_path != "None":
-                elemPicturePath = "static/pictures/" + QuizObject.questions[itr].picture_path
-                if os.path.exists(elemPicturePath):
+                elemPicturePath = "../static/pictures/" + QuizObject.questions[itr].picture_path
+                if os.path.exists(elemPicturePath[3:]):
                     print("it exists")
+                    #print(elemPicturePath[3:])
                     listItem = {"exists":"yes","path":str(elemPicturePath)}
                     picPathLists.append(listItem)
                 else:
