@@ -10,12 +10,56 @@
 
         <form id="regForm" method="post" action="">
 
-            <p class="spfontncenter">
-                Lost Kingdom Trivia
-            </p>
+            <div class="row>">
+                <div class="mcol">
+                    <p class="spfontncenter">
+                        Lost Kingdom Trivia
+                    </p>
+                </div>
+            </div>
 
             <div class="tab">
-                    <!-- this is the tab that will display if picPaths[n].exists = "no", if yes then path is used-->
+                {% if picPaths[0].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[0].label }}
+                
+                            <br>
+                            
+                            {% for item in question1 %}
+                
+                            <input type="radio" name="q1" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[0].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
+                <p class="spfontncenter">
+
+                    {{ accessibleQuiz.questions[0].label }}
+        
+                    <br>
+                    
+                    {% for item in question1 %}
+        
+                    <input type="radio" name="q1" value= {{ item }} checked>
+                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+        
+                    {% endfor %}
+                </p>
+
+                {% endif %}
+                    <!-- this is the tab that will display if picPaths[n].exists = "no", if yes then path is used
                     <p class="spfontncenter">
 
                         {{ accessibleQuiz.questions[0].label }}
@@ -28,17 +72,37 @@
                         <label class="spfontncenterLabel"> {{ item }} </label><br>
             
                         {% endfor %}
-
-                        {% if picPaths[0].exists == "yes" %}
-
-                            <img src={{ picPaths[0].path }}>
-
-                        {% endif %}
                     </p>
+                -->
             </div>
 
             <div class="tab">
 
+                {% if picPaths[1].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[1].label }}
+                
+                            <br>
+                            
+                            {% for item in question2 %}
+                
+                            <input type="radio" name="q2" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[1].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[1].label }}
@@ -51,18 +115,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[1].exists == "yes" %}
-
-                        <img src={{ picPaths[1].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[2].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[2].label }}
+                
+                            <br>
+                            
+                            {% for item in question3 %}
+                
+                            <input type="radio" name="q3" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[2].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[2].label }}
@@ -75,18 +160,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[2].exists == "yes" %}
-
-                        <img src={{ picPaths[2].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[3].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[3].label }}
+                
+                            <br>
+                            
+                            {% for item in question4 %}
+                
+                            <input type="radio" name="q4" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[3].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[3].label }}
@@ -99,18 +205,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[3].exists == "yes" %}
-
-                        <img src={{ picPaths[3].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[4].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[4].label }}
+                
+                            <br>
+                            
+                            {% for item in question5 %}
+                
+                            <input type="radio" name="q5" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[4].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[4].label }}
@@ -123,18 +250,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[4].exists == "yes" %}
-
-                        <img src={{ picPaths[4].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[5].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[5].label }}
+                
+                            <br>
+                            
+                            {% for item in question6 %}
+                
+                            <input type="radio" name="q6" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[5].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[5].label }}
@@ -147,18 +295,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[5].exists == "yes" %}
-
-                        <img src={{ picPaths[5].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[6].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[6].label }}
+                
+                            <br>
+                            
+                            {% for item in question7 %}
+                
+                            <input type="radio" name="q7" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[6].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[6].label }}
@@ -171,18 +340,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[6].exists == "yes" %}
-
-                        <img src={{ picPaths[6].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[7].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[7].label }}
+                
+                            <br>
+                            
+                            {% for item in question8 %}
+                
+                            <input type="radio" name="q8" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[7].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[7].label }}
@@ -195,18 +385,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[7].exists == "yes" %}
-
-                        <img src={{ picPaths[7].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[8].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[8].label }}
+                
+                            <br>
+                            
+                            {% for item in question9 %}
+                
+                            <input type="radio" name="q9" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[8].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[8].label }}
@@ -219,18 +430,39 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[8].exists == "yes" %}
-
-                        <img src={{ picPaths[8].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
             <div class="tab">
 
+                {% if picPaths[9].exists == "yes" %}
+
+                <div class="row>">
+                    <div class="lcol">
+                        <p class="spfontncenter">
+
+                            {{ accessibleQuiz.questions[9].label }}
+                
+                            <br>
+                            
+                            {% for item in question10 %}
+                
+                            <input type="radio" name="q10" value= {{ item }} checked>
+                            <label class="spfontncenterLabel"> {{ item }} </label><br>
+                
+                            {% endfor %}
+                        </p>
+                    </div>
+                    <div class="rcol">
+                        <img src={{ picPaths[9].path }} style="height: 450px; width: 600px; border-radius: 20px;">
+                    </div>
+                </div>
+
+                {% else %}
+                
                 <p class="spfontncenter">
 
                     {{ accessibleQuiz.questions[9].label }}
@@ -243,32 +475,34 @@
                     <label class="spfontncenterLabel"> {{ item }} </label><br>
         
                     {% endfor %}
-
-                    {% if picPaths[9].exists == "yes" %}
-
-                        <img src={{ picPaths[9].path }}>
-
-                    {% endif %}
                 </p>
+
+                {% endif %}
 
             </div>
 
-            <div class="centered">
-                <button type="button" class="triviaButton" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" class="triviaButton" id="nextBtn" onclick="nextPrev(1)">Next</button>
-              </div>
-              <div style="text-align:center;margin-top:40px;">
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-              </div>
+            <div class="row">
+                <div class="mcol">
+                    <br>
+                    <!-- <div class="centered"> -->
+                        <button type="button" class="triviaButton" style="margin-right: 20px;" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                        
+                        <button type="button" class="triviaButton" style="margin-left: 20px;" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <!-- </div> -->
+                    <div style="text-align:center;margin-top:40px;">
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                        <span class="step"></span>
+                    </div>
+                </div>
+            </div>
         </form>
 
         <script src="static/myFunctions.js">

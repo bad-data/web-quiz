@@ -7,6 +7,33 @@ body {
     box-sizing: border-box;
   }
 
+  .mcol {
+    float: left;
+    width: 100%;
+    text-align: center;
+    display: table-cell;
+  }
+  
+  .lcol {
+    float: left;
+    width: 50%;
+    text-align: center;
+    display: table-cell;
+  }
+  
+  .rcol {
+    float: left;
+    width: 50%;
+    text-align: center;
+    display: table-cell;
+  }
+  
+  .colContainer {
+    display: table;
+    width: 100%
+  }
+
+
 .questionConatiner {
   height: 450px;
   width: 70%;
