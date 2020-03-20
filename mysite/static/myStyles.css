@@ -165,6 +165,17 @@ body {
   display: none;
 }
 
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: blueviolet;
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
