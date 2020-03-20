@@ -33,6 +33,9 @@ body {
     width: 100%
   }
 
+.hi {
+  text-align: center;
+}
 
 .questionConatiner {
   height: 450px;
