@@ -1,26 +1,55 @@
-<html>
-    {% extends "base.html" %}
+    <html>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/myStyles.css">
+        <!-- <embed src="../static/sound/jungle_music.mp3" autostart="true" loop="true" hidden="true"> -->
+    </head>
 
-    {% block content %}
-    <body >
+    <body>
+    <!-- <body style="background-image: url('../static/pictures/rainforest1.jpg');" > -->
+        <div class="bg">
         <div class="row">
-            <div class="leftcolumn">
-                    <img src="static/LostKingdomLogoWithDinos.png" width="600px" height="600px">
-            </div>
-            <div class="rightcolumn">
-                <h1 class="spfontncenter">
-                    <br><br>
-                    Lost Kingdom Minigolf Trivia
-                </h1>
-                <p class="spfontncenter">
-                    During your mini golfing adventure, you learned many facts about our ancient scaly friends<br>
-                    click below to start a trivia quiz!
-                    <form action="" method="post" novalidate>
-                    <p class="centered">{{ form.submit(class_="triviaButton") }}</p>
-                    </form>
-                </p>
+
+            <div class="colContainer">
+                <div class="lcol" style="padding-top: 20px;">
+                        <img src="static/LostKingdomLogoWithDinos.png" width="500px" height="500px">
+                </div>
+                <div class="rcol" style="padding-right: 100px; padding-top: 50px;">
+                        <div class="card">
+                        <h1 class="afrikaUpper">
+                            LOST KINGDOM MINIGOLF TRIVIA
+                        </h1>
+                        <p class="afrikaLower">
+                            during your mini golfing adventure, you learned many facts about our ancient scaly friends<br>
+                            click below to start a trivia quiz!
+                        </p>
+                        </div>
+                        <form action="" method="post" novalidate>
+                        <p class="centered">{{ form.submit(class_="triviaButton") }}</p>
+                        </form>
+                </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="colContainer">
+
+                <div class="mcol">
+
+                    <div class="footer">
+                    <p class="centered">
+                    <img src="../static/FNSLOGO.png" width="400px" height="80px">
+                    </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
     </body>
-    {% endblock%}
-</html>
+
+    </html>

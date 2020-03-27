@@ -6,11 +6,13 @@
         <!-- <embed src="../static/sound/jungle_music.mp3" autostart="true" loop="true" hidden="true"> -->
     </head>
 
-    {% block content %}{% endblock %}
+    <body>
+        <div class="bg">
 
-    <div class="footer">
-        <p class="centered">
-        <img src="../static/FNSLOGO.png" width="400px" height="80px">
-        </p>
-    </div>
+        {% block content %}{% endblock %}
+
+        </div>
+
+    </body>
+
 </html>
