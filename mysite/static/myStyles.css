@@ -104,6 +104,14 @@ body {
   animation: move 20s infinite linear;
 }
 
+.bg2 {
+  height: 100%;
+  width: 100%;
+  background: url('../static/pictures/rainforest2.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
 @keyframes move {
 0%, 100% {
   background-position: top;

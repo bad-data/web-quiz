@@ -1,79 +1,100 @@
-<html>
+
     {% extends "base.html" %}
 
     {% block content %}
     <body>
+        <div class="bg2">
         <div class="row">
-            <div class="leftcolumn">
-                    <img src="../static/LostKingdomLogoWithDinos.png" width="600px" height="600px">
+            <div class="colContainer">
+                <div class="lcol" style="padding-top: 20px;">
+                    <img src="static/LostKingdomLogoWithDinos.png" width="500px" height="500px">
             </div>
-            <div class="rightcolumn">
+            <div class="rcol" style="padding-right: 100px; padding-top: 50px;">
+                <div class= card>
                 <h1 class="afrikaUpper">
-                    <br><br>
                     YOU GOT A: {{ grade }}/10!
                 </h1>
                 {% if grade == 0 %}
-                <p class="spfontncenter">
-                    I know you can do better than that!
+                <p class="afrikaLower">
+                    i know you can do better than that!
                 </p>
                 {% endif %}
                 {% if grade == 1 %}
-                <p class="spfontncenter">
-                    This was just a warm up, try again!
+                <p class="afrikaLower">
+                    this was just a warm up, try again!
                 </p>
                 {% endif %}
                 {% if grade == 2 %}
-                <p class="spfontncenter">
-                    Nice job but we know you can do better than that!
+                <p class="afrikaLower">
+                    nice job but we know you can do better than that!
                 </p>
                 {% endif %}
                 {% if grade == 3 %}
-                <p class="spfontncenter">
-                    Nice Job!
+                <p class="afrikaLower">
+                    nice job!
                 </p>
                 {% endif %}
                 {% if grade == 4 %}
-                <p class="spfontncenter">
-                    Good job, make sure to try again!
+                <p class="afrikaLower">
+                    good job, make sure to try again!
                 </p>
                 {% endif %}
                 {% if grade == 5 %}
-                <p class="spfontncenter">
-                    Good job!
+                <p class="afrikaLower">
+                    good job!
                 </p>
                 {% endif %}
                 {% if grade == 6 %}
-                <p class="spfontncenter">
-                    Awesome job!
+                <p class="afrikaLower">
+                    awesome job!
                 </p>
                 {% endif %}
                 {% if grade == 7 %}
-                <p class="spfontncenter">
-                    Nice job, any T-Rex would be proud!
+                <p class="afrikaLower">
+                    nice job, any T-Rex would be proud!
                 </p>
                 {% endif %}
                 {% if grade == 8 %}
-                <p class="spfontncenter">
-                    Great job, almost perfect!
+                <p class="afrikaLower">
+                    great job, almost perfect!
                 </p>
                 {% endif %}
                 {% if grade == 9 %}
-                <p class="spfontncenter">
-                    Amazing job, you know your stuff!
+                <p class="afrikaLower">
+                    amazing job, you know your stuff!
                 </p>
                 {% endif %}
                 {% if grade == 10 %}
-                <p class="spfontncenter">
-                   Thats a perfect score!!!
+                <p class="afrikaLower">
+                   thats a perfect score!!!
                 </p>
                 {% endif %}
+            <p class="afrikaLower">thanks for playing!</p>
             </div>
-            <p class="spfontncenterNew">Thanks for playing!</p>
             <p class="centered">
-            <button class="triviaButtonNew" onclick="location.href = '/';">New Attempt</button>
+            <button class="triviaButton" onclick="location.href = '/';">New Attempt</button>
             </p>
+            </div>
         </div>
 
+        </div>
+        <div class="row">
+            <div class="colContainer">
+
+                <div class="mcol">
+
+                    <div class="footer">
+                    <p class="centered">
+                    <img src="../static/FNSLOGO.png" width="400px" height="80px">
+                    </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        </div>
     </body>
-    {% endblock%}
-</html>
+
+    {% endblock %}
