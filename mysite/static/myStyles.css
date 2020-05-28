@@ -15,6 +15,14 @@
   text-align:center;
 }
 
+.afrikaUpperSmaller {
+  font-family: 'afrika';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 50px;
+  text-align:center;
+}
+
 .afrikaLower {
   font-family: 'afrika';
   font-weight: normal;

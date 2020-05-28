@@ -55,8 +55,7 @@
                 </div>
                 <div class="questionPageMiddleColumn">
                     <div class="card">
-                        {{ question }}
-                        <br>
+                        <p class="afrikaUpperSmaller">{{ questionNumber }}. {{ question }}</p>
                         {% for item in answers %}
                     
                             <input type="radio" name="questionData" value= {{ item }} checked>

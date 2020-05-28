@@ -139,19 +139,27 @@ def exam(questionNumber):
             #print(answerList)
             return redirect(url_for('exam', questionNumber=qNumber))
         else:
-            # quiz is done and needs to graded
-            for elem in QuizObject.user_answers:
-                print(elem)
-            index = 0
-            while index < QuizObject.size:
-                if QuizObject.answer_key[index] == QuizObject.user_answers[index]:
-                    QuizObject.grade = QuizObject.grade + 1
-                index = index + 1
-            grade= QuizObject.grade
             #STOP THERE NEEDS TO A REDIRECT_URL for PRG pattern
-            return render_template('graded.html', grade=grade)
+            return redirect(url_for('grade'))
     else:
         quizQuestion = QuizObject.questions[qNumber].label
         answerList = QuizObject.questions[qNumber].answers
         print(answerList)
-        return render_template('questionPage.html', questionNumber=qNumber, question=quizQuestion, answers=answerList)
+        quizVisualNumber = qNumber+1
+        return render_template('questionPage.html', questionNumber=quizVisualNumber, question=quizQuestion, answers=answerList)
+
+
+@app.route('/grade', methods=['GET'])
+def grade():
+    QuizObject = Quiz.deserializeQuiz(session['quiz'])
+    # quiz is done and needs to graded
+    for elem in QuizObject.user_answers:
+        print(elem)
+    index = 0
+    while index < QuizObject.size:
+        if QuizObject.answer_key[index] == QuizObject.user_answers[index]:
+            QuizObject.grade = QuizObject.grade + 1
+        index = index + 1
+    grade= QuizObject.grade
+    print(grade)
+    return render_template('graded.html', grade=grade)
