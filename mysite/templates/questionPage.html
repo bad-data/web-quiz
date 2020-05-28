@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <embed src="../static/sound/dino_roar.mp3" autostart="true" loop="false" hidden="true">
+    </head>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <body>
+        {% if questionNumber == 0%}
+        <div class="bg4">
+        {% elif questionNumber == 1%}
+        <div class="bg5">
+        {% elif questionNumber == 2%}
+        <div class="bg6">
+        {% elif questionNumber == 3%}
+        <div class="bg7">
+        {% elif questionNumber == 4%}
+        <div class="bg8">
+        {% elif questionNumber == 5%}
+        <div class="bg9">
+        {% elif questionNumber == 6%}
+        <div class="bg10">
+        {% elif questionNumber == 7%}
+        <div class="bg11">
+        {% elif questionNumber == 8%}
+        <div class="bg12">
+        {% elif questionNumber == 9%}
+        <div class="bg13">
+        {% else %}
+        <div class="bg3">
+        {% endif %}
+
+        <form id="regForm" method="post" action="">
+
+        <div class="row>">
+            <div class="colContainer">
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+                <div class="questionPageHeaderMiddleColumn">
+                    <p class="afrikaUpper">
+                        LOST KINGDOM TRIVIA
+                    </p>
+                </div>
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row>">
+            <div class="colContainer">
+                <div class="questionPageSideColumn">
+                    <p></p>
+                </div>
+                <div class="questionPageMiddleColumn">
+                    <div class="card">
+                        {{ question }}
+                        <br>
+                        {% for item in answers %}
+                    
+                            <input type="radio" name="questionData" value= {{ item }} checked>
+                            <label class="afrikaLower"> {{ item }} </label><br>
+                    
+                        {% endfor %}
+
+                        <br>
+                        
+                        <button type="submit" form="regForm" class="triviaButton" value="Submit">Next</button>
+
+                    </div>
+                </div>
+                <div class="questionPageSideColumn">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row>">
+            <div class="colContainer">
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+                <div class="questionPageHeaderMiddleColumn">
+                    <p>
+                        <img src="../static/FNSLOGO.png" width="400px" height="80px">
+                    </p>
+                </div>
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+    </div>
+    </body>
+    {% endblock %}

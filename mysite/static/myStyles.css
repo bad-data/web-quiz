@@ -61,6 +61,34 @@ body {
   text-align: center;
 }
 
+.questionPageHeaderSideColumn {
+    float: left;
+    width: 25%;
+    text-align: center;
+    display: table-cell;
+  }
+
+  .questionPageHeaderMiddleColumn {
+    float: left;
+    width: 50%;
+    text-align: center;
+    display: table-cell;
+  }
+
+  .questionPageMiddleColumn {
+    float: left;
+    width: 75%;
+    text-align: center;
+    display: table-cell;
+  }
+
+  .questionPageSideColumn {
+    float: left;
+    width: 12.5%;
+    text-align: center;
+    display: table-cell;
+  }
+
 .questionConatiner {
   height: 450px;
   width: 70%;
@@ -97,17 +125,118 @@ body {
 }
 
 .bg {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
   background: url('../static/pictures/rainforest1.jpg');
   background-size: 150%;
   animation: move 20s infinite linear;
 }
 
 .bg2 {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
   background: url('../static/pictures/rainforest2.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg3 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/monolophosaurus.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg4 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/triceratops.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg5 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/brachiosaurus.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg6 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/spinosaurus1.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg7 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/pterosuar.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg8 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/t-rex.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg9 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/triceratops2.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg10 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/styracosaurus3.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg11 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/spinosaurus2.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg12 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/brachiosaurus1.jpg');
+  background-size: 150%;
+  animation: move 20s infinite linear;
+}
+
+.bg13 {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  background: url('../static/pictures/rainforest3.jpg');
   background-size: 150%;
   animation: move 20s infinite linear;
 }
@@ -232,6 +361,57 @@ body {
   background-color: blueviolet;
 }
 
+.labelcontainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+/* Hide the browser's default radio button */
+.labelcontainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 27%;
+  z-index: -1;
+  height: 50px;
+  width: 50%;
+  background-color: #eee;
+  border-radius: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.labelcontainer:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.labelcontainer input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.labelcontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -284,7 +464,7 @@ body {
 }
   /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-    .leftcolumn, .rightcolumn {   
+    .lcol, .rcol {   
       width: 100%;
       padding: 0;
     }

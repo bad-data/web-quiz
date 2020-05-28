@@ -11,12 +11,19 @@ def index():
         return redirect(url_for('createquiz'))
     return render_template('index.html', title='Index Page', form=form)
 
+
+@app.route('/test', methods=['GET','POST'])
+def test():
+    return render_template('testkeys1.html')
+
 @app.route('/createquiz')
 def createquiz():
     triviaQuiz = makeQuiz()
     passableQuiz = serializeQuiz(triviaQuiz)
     session['quiz'] = passableQuiz
-    return redirect(url_for('takequiz'))
+    session['questionNumber'] = 0
+    #return redirect(url_for('takequiz'))
+    return redirect(url_for('exam', questionNumber=session['questionNumber']))
 
 @app.route('/takequiz', methods=['POST','GET'])
 #@app.route('/test2/<quiz>', methods=['POST','GET'])
@@ -110,3 +117,41 @@ def takequiz():
         #print(path)
         return render_template('quiz.html', question1=question1, question2=question2,question3=question3,question4=question4,question5=question5,question6=question6,question7=question7,question8=question8,question9=question9,question10=question10, accessibleQuiz=QuizObject,picPaths = picPathLists)
         #return redirect(url_for('index'))
+
+
+@app.route('/exam', methods=['POST','GET'])
+@app.route('/exam/<int:questionNumber>', methods=['POST','GET'])
+def exam(questionNumber):
+    QuizObject = Quiz.deserializeQuiz(session['quiz'])
+    qNumber = int(questionNumber)
+    print(QuizObject.user_answers)
+    if request.method == "POST":
+        # save requested data into last data
+        QuizObject.user_answers.append(request.form["questionData"])
+        passableQuiz = serializeQuiz(QuizObject)
+        session['quiz'] = passableQuiz
+        qNumber = qNumber + 1
+        if qNumber < 10:
+            #in here when qNumber is 0-9, which is questions 1-10 in QuizObject
+            # render template with passing values with new values from quizObject
+            #quizQuestion = QuizObject.questions[qNumber].label
+            #answerList = QuizObject.questions[qNumber].answers
+            #print(answerList)
+            return redirect(url_for('exam', questionNumber=qNumber))
+        else:
+            # quiz is done and needs to graded
+            for elem in QuizObject.user_answers:
+                print(elem)
+            index = 0
+            while index < QuizObject.size:
+                if QuizObject.answer_key[index] == QuizObject.user_answers[index]:
+                    QuizObject.grade = QuizObject.grade + 1
+                index = index + 1
+            grade= QuizObject.grade
+            #STOP THERE NEEDS TO A REDIRECT_URL for PRG pattern
+            return render_template('graded.html', grade=grade)
+    else:
+        quizQuestion = QuizObject.questions[qNumber].label
+        answerList = QuizObject.questions[qNumber].answers
+        print(answerList)
+        return render_template('questionPage.html', questionNumber=qNumber, question=quizQuestion, answers=answerList)

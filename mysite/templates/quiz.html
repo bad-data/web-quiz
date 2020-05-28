@@ -24,7 +24,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[0].label }}
                     
@@ -32,9 +32,10 @@
                                 
                                 {% for item in question1 %}
                     
+                                <label class="labelcontainer"> <span style="top: 5px;"> {{ item }} </span>
                                 <input type="radio" name="q1" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
-                    
+                                <span class="checkmark"></span></label><br>
+
                                 {% endfor %}
                             </p>
                         </div>
@@ -46,7 +47,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[0].label }}
         
@@ -54,8 +55,9 @@
                     
                     {% for item in question1 %}
         
-                    <input type="radio" name="q1" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="labelcontainer"> <span style="top: 5px;"> {{ item }} </span>
+                        <input type="radio" name="q1" value= {{ item }} checked>
+                        <span class="checkmark"></span></label><br>
         
                     {% endfor %}
                 </p>
@@ -85,7 +87,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[1].label }}
                     
@@ -94,7 +96,7 @@
                                 {% for item in question2 %}
                     
                                 <input type="radio" name="q2" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -107,7 +109,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[1].label }}
         
@@ -116,7 +118,7 @@
                     {% for item in question2 %}
         
                     <input type="radio" name="q2" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -132,7 +134,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[2].label }}
                     
@@ -141,7 +143,7 @@
                                 {% for item in question3 %}
                     
                                 <input type="radio" name="q3" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -154,7 +156,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[2].label }}
         
@@ -163,7 +165,7 @@
                     {% for item in question3 %}
         
                     <input type="radio" name="q3" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -179,7 +181,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[3].label }}
                     
@@ -188,7 +190,7 @@
                                 {% for item in question4 %}
                     
                                 <input type="radio" name="q4" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -201,7 +203,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[3].label }}
         
@@ -210,7 +212,7 @@
                     {% for item in question4 %}
         
                     <input type="radio" name="q4" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -226,7 +228,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[4].label }}
                     
@@ -235,7 +237,7 @@
                                 {% for item in question5 %}
                     
                                 <input type="radio" name="q5" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -248,7 +250,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[4].label }}
         
@@ -257,7 +259,7 @@
                     {% for item in question5 %}
         
                     <input type="radio" name="q5" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -273,7 +275,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[5].label }}
                     
@@ -282,7 +284,7 @@
                                 {% for item in question6 %}
                     
                                 <input type="radio" name="q6" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -295,7 +297,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[5].label }}
         
@@ -304,7 +306,7 @@
                     {% for item in question6 %}
         
                     <input type="radio" name="q6" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -320,7 +322,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[6].label }}
                     
@@ -329,7 +331,7 @@
                                 {% for item in question7 %}
                     
                                 <input type="radio" name="q7" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -342,7 +344,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[6].label }}
         
@@ -351,7 +353,7 @@
                     {% for item in question7 %}
         
                     <input type="radio" name="q7" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -367,7 +369,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[7].label }}
                     
@@ -376,7 +378,7 @@
                                 {% for item in question8 %}
                     
                                 <input type="radio" name="q8" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -389,7 +391,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[7].label }}
         
@@ -398,7 +400,7 @@
                     {% for item in question8 %}
         
                     <input type="radio" name="q8" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -414,7 +416,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[8].label }}
                     
@@ -423,7 +425,7 @@
                                 {% for item in question9 %}
                     
                                 <input type="radio" name="q9" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -436,7 +438,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[8].label }}
         
@@ -445,7 +447,7 @@
                     {% for item in question9 %}
         
                     <input type="radio" name="q9" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -461,7 +463,7 @@
                 <div class="row>">
                     <div class="colContainer">
                         <div class="lcol">
-                            <p class="spfontncenter">
+                            <p class="afrikaUpper">
 
                                 {{ accessibleQuiz.questions[9].label }}
                     
@@ -470,7 +472,7 @@
                                 {% for item in question10 %}
                     
                                 <input type="radio" name="q10" value= {{ item }} checked>
-                                <label class="spfontncenterLabel"> {{ item }} </label><br>
+                                <label class="afrikaLower"> {{ item }} </label><br>
                     
                                 {% endfor %}
                             </p>
@@ -483,7 +485,7 @@
 
                 {% else %}
                 
-                <p class="spfontncenter">
+                <p class="afrikaUpper">
 
                     {{ accessibleQuiz.questions[9].label }}
         
@@ -492,7 +494,7 @@
                     {% for item in question10 %}
         
                     <input type="radio" name="q10" value= {{ item }} checked>
-                    <label class="spfontncenterLabel"> {{ item }} </label><br>
+                    <label class="afrikaLower"> {{ item }} </label><br>
         
                     {% endfor %}
                 </p>
@@ -527,6 +529,23 @@
 
         <script src="static/myFunctions.js">
         </script>
+
+<div class="row">
+    <div class="colContainer">
+
+        <div class="mcol">
+
+            <div class="footer">
+            <p class="centered">
+            <img src="../static/FNSLOGO.png" width="400px" height="80px">
+            </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
     </body>
 
