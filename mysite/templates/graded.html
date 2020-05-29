@@ -7,7 +7,7 @@
         <div class="row">
             <div class="colContainer">
                 <div class="lcol" style="padding-top: 20px;">
-                    <img src="static/LostKingdomLogoWithDinos.png" width="500px" height="500px">
+                    <img id="fnsdino" src="static/LostKingdomLogoWithDinos.png" width="500px" height="500px">
             </div>
             <div class="rcol" style="padding-right: 100px; padding-top: 50px;">
                 <div class= card>
@@ -69,6 +69,34 @@
                    thats a perfect score!!!
                 </p>
                 {% endif %}
+
+                <button type="button" class="triviaButton" onclick="myFunction()">See Results!</button>
+<!--
+                <script>
+                    function myFunction() {
+                      document.getElementById("fnsdino").style.visibility = "hidden";
+                      document.getElementById("scoreTable").style.visibility = "visible";
+                    }
+                    </script> 
+                <table style="width:90%">
+                    <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Your Answers</th>
+                    <th>Correct Answer</th>
+                    <th>-</th>
+                    </tr>
+                    {% for item in answerKey %}
+                    <tr>
+                    <td>{{ item["#"] }}</td>
+                    <td>{{ item["question"] }}</td>
+                    <td>{{ item["your_answer"] }}</td>
+                    <td>{{ item["correct_answer"] }}</td>
+                    <td>{{ item["-"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            -->
             <p class="afrikaLower">thanks for playing!</p>
             </div>
             <p class="centered">
@@ -77,7 +105,7 @@
             </div>
         </div>
 
-        </div>
+        </div> <!--
         <div class="row">
             <div class="colContainer">
 
@@ -93,7 +121,7 @@
 
             </div>
 
-        </div>
+        </div> -->
         </div>
     </body>
 

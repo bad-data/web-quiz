@@ -162,4 +162,6 @@ def grade():
         index = index + 1
     grade= QuizObject.grade
     print(grade)
-    return render_template('graded.html', grade=grade)
+    tableData = QuizObject.generateTableData()
+    print(tableData)
+    return render_template('graded.html', grade=grade, answerKey = tableData)

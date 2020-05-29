@@ -42,6 +42,30 @@ class Quiz:
         for x in self.answer_key:
             print(x)
     
+    def generateTableData(self):
+        # generate list of dictionaries, each dictionary is full row data with each value being column data
+        # for example:
+        # [{"qNumber":"1","Question":"Which Dino Couldn't Swim?","You Answered":"Brachiosaurus","Correct Answer":"Raptor","-":"x(if wrong)"},{},{},{},...]
+        listOfTableRows = []
+        index = 0
+        while index < (self.size):
+            #if index == 0:
+                #header = {"#":"#","question":"Question","your_answer":"You Answered","correct_answer":"Correct Answer","-":"-"}
+                #listOfTableRows.append(header)
+                #index= index + 1
+            #else:
+            qNumber = str(index+1)
+            wasRight = "False"
+            if str(self.user_answers[index]) == str(self.answer_key[index]):
+                wasRight = "True"
+            newRow = {"#":qNumber,"question":str(self.questions[index].label),"your_answer":str(self.user_answers[index]),"correct_answer":str(self.answer_key[index]),"-":wasRight}
+            print(newRow)
+            listOfTableRows.append(newRow)
+            index = index + 1
+        print(listOfTableRows)
+        return listOfTableRows
+
+
     def gradeQuiz(self):
         i = 0
         while i < self.size:

@@ -38,9 +38,10 @@
                     <p></p>
                 </div>
                 <div class="questionPageHeaderMiddleColumn">
-                    <p class="afrikaUpper">
-                        LOST KINGDOM TRIVIA
-                    </p>
+                    <span class="afrikaUpper">
+                        <img src="../static/FUNNSTUFFS.png" width="450px" height="80px">
+                        <br>LOST KINGDOM TRIVIA<br>
+                    </span>
                 </div>
                 <div class="questionPageHeaderSideColumn">
                     <p></p>
@@ -54,8 +55,9 @@
                     <p></p>
                 </div>
                 <div class="questionPageMiddleColumn">
-                    <div class="card">
-                        <p class="afrikaUpperSmaller">{{ questionNumber }}. {{ question }}</p>
+                    <div class="card2">
+                        <span class="afrikaUpperSmaller">{{ questionNumber }}. {{ question }}</span>
+                        <br>
                         {% for item in answers %}
                     
                             <input type="radio" name="questionData" value= {{ item }} checked>
@@ -74,7 +76,7 @@
                 </div>
             </div>
         </div>
-
+<!--
         <div class="row>">
             <div class="colContainer">
                 <div class="questionPageHeaderSideColumn">
@@ -90,7 +92,7 @@
                 </div>
             </div>
         </div>
-
+    -->
 
     </form>
 

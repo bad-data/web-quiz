@@ -15,6 +15,16 @@
   text-align:center;
 }
 
+.afrikaUpperspecial {
+  font-family: 'afrika';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 60px;
+  text-align:center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .afrikaUpperSmaller {
   font-family: 'afrika';
   font-weight: normal;
@@ -71,28 +81,29 @@ body {
 
 .questionPageHeaderSideColumn {
     float: left;
-    width: 25%;
+    width: 12.5%;
     text-align: center;
     display: table-cell;
   }
 
   .questionPageHeaderMiddleColumn {
     float: left;
-    width: 50%;
+    width: 75%;
     text-align: center;
     display: table-cell;
+    margin-top: 20px;
   }
 
   .questionPageMiddleColumn {
     float: left;
-    width: 75%;
+    width: 60%;
     text-align: center;
     display: table-cell;
   }
 
   .questionPageSideColumn {
     float: left;
-    width: 12.5%;
+    width: 20%;
     text-align: center;
     display: table-cell;
   }
@@ -247,6 +258,10 @@ body {
   background: url('../static/pictures/rainforest3.jpg');
   background-size: 150%;
   animation: move 20s infinite linear;
+}
+
+table, th, td {
+  border: 1px solid black;
 }
 
 @keyframes move {
@@ -464,6 +479,15 @@ body {
   border-radius: 30px;
   border-width: 10px;
   border-color: black;
+}
+
+.card2 {
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px;
+  border-width: 8px;
+  border-color: black;
+  margin-top: 20px;
 }
 
 /* Mark the steps that are finished and valid: */
