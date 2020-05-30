@@ -260,6 +260,10 @@ body {
   animation: move 20s infinite linear;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 td {
   border: 1px solid black;
   padding: 8px;
@@ -274,6 +278,7 @@ th {
   color: white;
   border: 1px solid black;
 }
+
 
 @keyframes move {
 0%, 100% {

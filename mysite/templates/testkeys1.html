@@ -1,18 +1,94 @@
-<html?>
-
-<head>
-    <title>
-        Testing Page
-    </title>
-</head>
-
+<!DOCTYPE html>
+<html>
 <body>
 
-    <form id="regForm" method="post" action="">
+<p>A trial for button controlled page</p>
 
-        
-    </form>
+<form id="form1" method="POST">
+  <input type="radio" id="81" value="option1">
+  <label for="male">Option1</label><br>
+  <input type="radio" id="87" value="option2">
+  <label for="female">Option2</label><br>
+  <input type="radio" id="69" value="option3">
+  <label for="other">Option3</label><br>
+  <input type="radio" id="82" value="option4">
+  <label for="other">Option4</label><br>
+  <button type="submit" form="form1" id="13" value="Submit">
+  <label for="other">Submit</label>
+</form> 
+
+<script>
+
+var option_selected = 0;
+var prev_selected = 0;
+var strNum = 0;
+var strNum2 = 0
+
+document.addEventListener("keypress", function(event) {
+if (prev_selected == 0) {
+    if (event.keyCode == 81) {
+      strNum = event.keyCode.toString();
+      document.getElementById(strNum).checked = true;
+      prev_selected = 81;
+    }
+    else if (event.keyCode == 87) {
+      strNum = event.keyCode.toString();
+      document.getElementById(strNum).checked = true;
+      prev_selected = 87;
+    }
+    else if (event.keyCode == 69) {
+      strNum = event.keyCode.toString();
+      document.getElementById(strNum).checked = true;
+      prev_selected = 69;
+    }
+    else if (event.keyCode == 82) {
+      strNum = event.keyCode.toString();
+      document.getElementById(strNum).checked = true;
+      prev_selected = 82;
+    }
+    else if (event.keyCode == 13) {
+      strNum = event.keyCode.toString();
+      document.getElementById(strNum).click();
+      prev_selected = 13;
+    }
+  }
+else if (event.keyCode != 13) {
+	if (event.keyCode != prev_selected && event.keyCode != 13) {
+      strNum = prev_selected.toString();
+      document.getElementById(strNum).checked = false;
+      strNum2 = event.keyCode.toString();
+      document.getElementById(strNum2).checked = true;
+      prev_selected = event.keyCode;
+    }
+    else if (event.keyCode == 87) {
+      strNum = prev_selected.toString();
+      document.getElementById(strNum).checked = false;
+      strNum2 = event.keyCode.toString();
+      document.getElementById(strNum2).checked = true;
+      prev_selected = event.keyCode;
+    }
+    else if (event.keyCode == 69) {
+      strNum = prev_selected.toString();
+      document.getElementById(strNum).checked = false;
+      strNum2 = event.keyCode.toString();
+      document.getElementById(strNum2).checked = true;
+      prev_selected = event.keyCode;
+    }
+    else if (event.keyCode == 82) {
+      strNum = prev_selected.toString();
+      document.getElementById(strNum).checked = false;
+      strNum2 = event.keyCode.toString();
+      document.getElementById(strNum2).checked = true;
+      prev_selected = event.keyCode;
+    }
+}
+else {
+	strNum = event.keyCode.toString();
+    document.getElementById(strNum).click();
+    }
+});
+
+</script>
 
 </body>
-
 </html>
