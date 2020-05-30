@@ -260,7 +260,18 @@ body {
   animation: move 20s infinite linear;
 }
 
-table, th, td {
+td {
+  border: 1px solid black;
+  padding: 8px;
+  background-color: white;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: blueviolet;
+  color: white;
   border: 1px solid black;
 }
 

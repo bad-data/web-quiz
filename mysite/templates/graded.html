@@ -8,6 +8,28 @@
             <div class="colContainer">
                 <div class="lcol" style="padding-top: 20px;">
                     <img id="fnsdino" src="static/LostKingdomLogoWithDinos.png" width="500px" height="500px">
+                    <table id="scoreTable" style="width:90%; display: none;">
+                        <tr>
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>Your Answers</th>
+                        <th>Correct Answer</th>
+                        <th>-</th>
+                        </tr>
+                        {% for item in answerKey %}
+                        <tr>
+                        <td>{{ item["#"] }}</td>
+                        <td>{{ item["question"] }}</td>
+                        <td>{{ item["your_answer"] }}</td>
+                        <td>{{ item["correct_answer"] }}</td>
+                        {% if item["-"] == "True" %}
+                        <td>✓</td>
+                        {% else %}
+                        <td>X</td>
+                        {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
             </div>
             <div class="rcol" style="padding-right: 100px; padding-top: 50px;">
                 <div class= card>
@@ -71,14 +93,13 @@
                 {% endif %}
 
                 <button type="button" class="triviaButton" onclick="myFunction()">See Results!</button>
-<!--
                 <script>
                     function myFunction() {
-                      document.getElementById("fnsdino").style.visibility = "hidden";
-                      document.getElementById("scoreTable").style.visibility = "visible";
+                      document.getElementById("fnsdino").style.display = "none";
+                      document.getElementById("scoreTable").style.display = "block";
                     }
                     </script> 
-                <table style="width:90%">
+                <!--<table id="scoreTable" style="width:90%; display: none; text-align: center;">
                     <tr>
                     <th>#</th>
                     <th>Question</th>
@@ -92,11 +113,15 @@
                     <td>{{ item["question"] }}</td>
                     <td>{{ item["your_answer"] }}</td>
                     <td>{{ item["correct_answer"] }}</td>
-                    <td>{{ item["-"] }}</td>
+                    {% if item["-"] == "True" %}
+                    <td>✓</td>
+                    {% else %}
+                    <td>X</td>
+                    {% endif %}
                     </tr>
                     {% endfor %}
-                </table>
-            -->
+                </table> -->
+            
             <p class="afrikaLower">thanks for playing!</p>
             </div>
             <p class="centered">
