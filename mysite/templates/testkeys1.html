@@ -16,7 +16,7 @@
   <button type="submit" form="form1" id="13" value="Submit">
   <label for="other">Submit</label>
 </form> 
-
+<!--
 <script>
 
 var option_selected = 0;
@@ -86,6 +86,21 @@ else {
 	strNum = event.keyCode.toString();
     document.getElementById(strNum).click();
     }
+});
+
+</script>
+-->
+<script>
+
+document.addEventListener("keypress", function(event) {
+  if (event.keyCode == 13) {
+      strNum = event.keyCode.toString();
+      document.getElementById(strNum).click();
+  }
+  else if (event.keyCode == 81) {
+      strNum = event.keyCode.toString();
+      document.getElementById(strNum).click();
+  }
 });
 
 </script>

@@ -1,0 +1,167 @@
+
+    {% extends "base.html" %}
+
+    {% block content %}
+    <script>
+
+        document.addEventListener("keypress", function(event) {
+          if (event.keyCode == 13) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).click();
+          }
+          else if (event.keyCode == 81) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).click();
+          }
+        });
+        
+    </script>
+    <body>
+        <div class="bg2">
+        <div class="row">
+            <div class="colContainer">
+                <div class="lcol" style="padding-top: 20px;">
+                    <img id="fnsdino" src="static/LostKingdomLogoWithDinos.png" width="500px" height="500px">
+                    <table id="scoreTable" style="width:90%; display: none; margin-left: 35px;">
+                        <tr>
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>Your Answers</th>
+                        <th>Correct Answer</th>
+                        <th>-</th>
+                        </tr>
+                        {% for item in answerKey %}
+                        <tr>
+                        <td>{{ item["#"] }}</td>
+                        <td>{{ item["question"] }}</td>
+                        <td>{{ item["your_answer"] }}</td>
+                        <td>{{ item["correct_answer"] }}</td>
+                        {% if item["-"] == "True" %}
+                        <td>✓</td>
+                        {% else %}
+                        <td>X</td>
+                        {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </table>
+            </div>
+            <div class="rcol" style="padding-right: 100px; padding-top: 50px;">
+                <div class= card>
+                <h1 class="afrikaUpper">
+                    YOU GOT A: {{ grade }}/10!
+                </h1>
+                {% if grade == 0 %}
+                <p class="afrikaLower">
+                    i know you can do better than that!
+                </p>
+                {% endif %}
+                {% if grade == 1 %}
+                <p class="afrikaLower">
+                    this was just a warm up, try again!
+                </p>
+                {% endif %}
+                {% if grade == 2 %}
+                <p class="afrikaLower">
+                    nice job but we know you can do better than that!
+                </p>
+                {% endif %}
+                {% if grade == 3 %}
+                <p class="afrikaLower">
+                    nice job!
+                </p>
+                {% endif %}
+                {% if grade == 4 %}
+                <p class="afrikaLower">
+                    good job, make sure to try again!
+                </p>
+                {% endif %}
+                {% if grade == 5 %}
+                <p class="afrikaLower">
+                    good job!
+                </p>
+                {% endif %}
+                {% if grade == 6 %}
+                <p class="afrikaLower">
+                    awesome job!
+                </p>
+                {% endif %}
+                {% if grade == 7 %}
+                <p class="afrikaLower">
+                    nice job, any T-Rex would be proud!
+                </p>
+                {% endif %}
+                {% if grade == 8 %}
+                <p class="afrikaLower">
+                    great job, almost perfect!
+                </p>
+                {% endif %}
+                {% if grade == 9 %}
+                <p class="afrikaLower">
+                    amazing job, you know your stuff!
+                </p>
+                {% endif %}
+                {% if grade == 10 %}
+                <p class="afrikaLower">
+                   thats a perfect score!!!
+                </p>
+                {% endif %}
+
+                <button type="button" id="81" class="triviaButton" onclick="myFunction()">See Results!</button>
+                <script>
+                    function myFunction() {
+                      document.getElementById("fnsdino").style.display = "none";
+                      document.getElementById("scoreTable").style.display = "block";
+                    }
+                    </script> 
+                <!--<table id="scoreTable" style="width:90%; display: none; text-align: center;">
+                    <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Your Answers</th>
+                    <th>Correct Answer</th>
+                    <th>-</th>
+                    </tr>
+                    {% for item in answerKey %}
+                    <tr>
+                    <td>{{ item["#"] }}</td>
+                    <td>{{ item["question"] }}</td>
+                    <td>{{ item["your_answer"] }}</td>
+                    <td>{{ item["correct_answer"] }}</td>
+                    {% if item["-"] == "True" %}
+                    <td>✓</td>
+                    {% else %}
+                    <td>X</td>
+                    {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table> -->
+            
+            <p class="afrikaLower">thanks for playing!</p>
+            </div>
+            <p class="centered">
+            <button class="triviaButton" id="13" onclick="location.href = '/';">New Attempt</button>
+            </p>
+            </div>
+        </div>
+        
+        </div> <!--
+        <div class="row">
+            <div class="colContainer">
+
+                <div class="mcol">
+
+                    <div class="footer">
+                    <p class="centered">
+                    <img src="../static/FNSLOGO.png" width="400px" height="80px">
+                    </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> -->
+        </div>
+    </body>
+
+    {% endblock %}

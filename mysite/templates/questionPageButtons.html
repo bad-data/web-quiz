@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <!--<embed src="../static/sound/dino_roar.mp3" autostart="true" loop="false" hidden="true">-->
+    </head>
+    {% extends "base.html" %}
+
+    {% block content %}
+
+    <script>
+
+        var option_selected = 0;
+        var prev_selected = 0;
+        var strNum = 0;
+        var strNum2 = 0
+        
+        document.addEventListener("keypress", function(event) {
+        if (prev_selected == 0) {
+            if (event.keyCode == 81) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).checked = true;
+              prev_selected = 81;
+            }
+            else if (event.keyCode == 87) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).checked = true;
+              prev_selected = 87;
+            }
+            else if (event.keyCode == 69) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).checked = true;
+              prev_selected = 69;
+            }
+            else if (event.keyCode == 82) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).checked = true;
+              prev_selected = 82;
+            }
+            else if (event.keyCode == 13) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).click();
+              prev_selected = 13;
+            }
+          }
+        else if (event.keyCode != 13) {
+            if (event.keyCode != prev_selected && event.keyCode != 13) {
+              strNum = prev_selected.toString();
+              document.getElementById(strNum).checked = false;
+              strNum2 = event.keyCode.toString();
+              document.getElementById(strNum2).checked = true;
+              prev_selected = event.keyCode;
+            }
+            else if (event.keyCode == 87) {
+              strNum = prev_selected.toString();
+              document.getElementById(strNum).checked = false;
+              strNum2 = event.keyCode.toString();
+              document.getElementById(strNum2).checked = true;
+              prev_selected = event.keyCode;
+            }
+            else if (event.keyCode == 69) {
+              strNum = prev_selected.toString();
+              document.getElementById(strNum).checked = false;
+              strNum2 = event.keyCode.toString();
+              document.getElementById(strNum2).checked = true;
+              prev_selected = event.keyCode;
+            }
+            else if (event.keyCode == 82) {
+              strNum = prev_selected.toString();
+              document.getElementById(strNum).checked = false;
+              strNum2 = event.keyCode.toString();
+              document.getElementById(strNum2).checked = true;
+              prev_selected = event.keyCode;
+            }
+        }
+        else {
+            strNum = event.keyCode.toString();
+            document.getElementById(strNum).click();
+            }
+        });
+        
+        </script>
+
+    <body>
+        {% if questionNumber == 0%}
+        <div class="bg4">
+        {% elif questionNumber == 1%}
+        <div class="bg5">
+        {% elif questionNumber == 2%}
+        <div class="bg6">
+        {% elif questionNumber == 3%}
+        <div class="bg7">
+        {% elif questionNumber == 4%}
+        <div class="bg8">
+        {% elif questionNumber == 5%}
+        <div class="bg9">
+        {% elif questionNumber == 6%}
+        <div class="bg10">
+        {% elif questionNumber == 7%}
+        <div class="bg11">
+        {% elif questionNumber == 8%}
+        <div class="bg12">
+        {% elif questionNumber == 9%}
+        <div class="bg13">
+        {% else %}
+        <div class="bg3">
+        {% endif %}
+
+        <form id="regForm" method="post" action="">
+
+        <div class="row>">
+            <div class="colContainer">
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+                <div class="questionPageHeaderMiddleColumn">
+                    <span class="afrikaUpper">
+                        <img src="../static/FUNNSTUFFS.png" width="450px" height="80px">
+                        <br>LOST KINGDOM TRIVIA<br>
+                    </span>
+                </div>
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row>">
+            <div class="colContainer">
+                <div class="questionPageSideColumn">
+                    <p></p>
+                </div>
+                <div class="questionPageMiddleColumn">
+                    <div class="card23">
+                        <span class="afrikaUpperSmaller">{{ questionNumber }}. {{ question }}</span>
+                        <br>
+                        <!--
+                        {% for item in answers %}
+                    
+                            <input type="radio" name="questionData" value= {{ item }} checked>
+                            <label class="afrikaLower"> {{ item }} </label><br>
+                    
+                        {% endfor %}
+                    -->
+                        <input type="radio" id="81" name="questionData" value= {{ answers[0] }} checked>
+                        <label class="afrikaLower"> {{ answers[0] }} </label><br>
+
+                        <input type="radio" id="87" name="questionData" value= {{ answers[1] }} >
+                        <label class="afrikaLower"> {{ answers[1] }} </label><br>
+
+                        <input type="radio" id="69" name="questionData" value= {{ answers[2] }} >
+                        <label class="afrikaLower"> {{ answers[2] }} </label><br>
+
+                        <input type="radio" id="82" name="questionData" value= {{ answers[3] }} >
+                        <label class="afrikaLower"> {{ answers[3] }} </label><br>
+
+                        <br>
+                        
+                        <button type="submit" form="regForm" id="13" class="triviaButton" value="Submit">Next</button>
+
+                    </div>
+                </div>
+                <div class="questionPageSideColumn">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+<!--
+        <div class="row>">
+            <div class="colContainer">
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+                <div class="questionPageHeaderMiddleColumn">
+                    <p>
+                        <img src="../static/FNSLOGO.png" width="400px" height="80px">
+                    </p>
+                </div>
+                <div class="questionPageHeaderSideColumn">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    -->
+
+    </form>
+
+
+    </div>
+    </body>
+    {% endblock %}

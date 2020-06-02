@@ -6,10 +6,9 @@ import os
 
 @app.route('/', methods=['POST','GET'])
 def index():
-    form = submitForm()
-    if form.is_submitted():
-        return redirect(url_for('createquiz'))
-    return render_template('index.html', title='Index Page', form=form)
+    #if request.method == 'POST':
+        #return redirect(url_for('createquiz'))
+    return render_template('indexButtons.html', title='Index Page')
 
 
 @app.route('/test', methods=['GET','POST'])
@@ -146,7 +145,7 @@ def exam(questionNumber):
         answerList = QuizObject.questions[qNumber].answers
         print(answerList)
         quizVisualNumber = qNumber+1
-        return render_template('questionPage.html', questionNumber=quizVisualNumber, question=quizQuestion, answers=answerList)
+        return render_template('questionPageButtons.html', questionNumber=quizVisualNumber, question=quizQuestion, answers=answerList)
 
 
 @app.route('/grade', methods=['GET'])
@@ -164,4 +163,4 @@ def grade():
     print(grade)
     tableData = QuizObject.generateTableData()
     print(tableData)
-    return render_template('graded.html', grade=grade, answerKey = tableData)
+    return render_template('gradedButtons.html', grade=grade, answerKey = tableData)

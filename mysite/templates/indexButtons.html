@@ -1,0 +1,65 @@
+<html>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/myStyles.css">
+        <!-- <embed src="../static/sound/jungle_music.mp3" autostart="true" loop="true" hidden="true"> -->
+    </head>
+
+    <script>
+
+        document.addEventListener("keypress", function(event) {
+          if (event.keyCode == 13) {
+              strNum = event.keyCode.toString();
+              document.getElementById(strNum).click();
+          }
+        });
+        
+    </script>
+
+    <body>
+    <!-- <body style="background-image: url('../static/pictures/rainforest1.jpg');" > -->
+        <div class="bg">
+        <div class="row">
+
+            <div class="colContainer">
+                <div class="lcol" style="padding-top: 20px;">
+                        <img src="static/LostKingdomLogoWithDinos.png" width="500px" height="500px">
+                </div>
+                <div class="rcol" style="padding-right: 100px; padding-top: 50px;">
+                        <div class="card">
+                        <h1 class="afrikaUpper">
+                            LOST KINGDOM MINIGOLF TRIVIA
+                        </h1>
+                        <p class="afrikaLower">
+                            during your mini golfing adventure, you learned many facts about our ancient scaly friends<br>
+                            click below to start a trivia quiz!
+                        </p>
+                        </div>
+                        <button class="triviaButton" id="13" onclick="location.href = '/createquiz';">Start Quiz</button>
+                </div>
+            </div>
+        </div>
+<!--
+        <div class="row">
+            <div class="colContainer">
+
+                <div class="mcol">
+
+                    <div class="footer">
+                    <p class="centered">
+                    <img src="../static/FNSLOGO.png" width="400px" height="80px">
+                    </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> -->
+        
+        </div>
+    </body>
+
+    </html>
