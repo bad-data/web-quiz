@@ -130,7 +130,7 @@
                 </div>
                 <div class="questionPageMiddleColumn">
                     <div class="card23">
-                        <span class="afrikaUpperSmaller">{{ questionNumber }}. {{ question }}</span>
+                        <span class="afrikaUpperSmaller">{{ questionNumber }}. {{ question.lower() }}</span>
                         <br>
                         <!--
                         {% for item in answers %}
@@ -140,17 +140,17 @@
                     
                         {% endfor %}
                     -->
-                        <input type="radio" id="113" name="questionData" value= {{ answers[0] }} checked>
-                        <label class="afrikaLower"> {{ answers[0] }} </label><br>
+                        <span class="afrikaLower">A</span> <input type="radio" id="113" name="questionData" value= {{ answers[0] }} checked>
+                        <label class="afrikaLower"> {{ answers[0].lower() }} </label><br>
 
-                        <input type="radio" id="119" name="questionData" value= {{ answers[1] }} >
-                        <label class="afrikaLower"> {{ answers[1] }} </label><br>
+                        <span class="afrikaLower">B</span> <input type="radio" id="119" name="questionData" value= {{ answers[1] }} >
+                        <label class="afrikaLower"> {{ answers[1].lower() }} </label><br>
 
-                        <input type="radio" id="101" name="questionData" value= {{ answers[2] }} >
-                        <label class="afrikaLower"> {{ answers[2] }} </label><br>
+                        <span class="afrikaLower">C</span> <input type="radio" id="101" name="questionData" value= {{ answers[2] }} >
+                        <label class="afrikaLower"> {{ answers[2].lower() }} </label><br>
 
-                        <input type="radio" id="114" name="questionData" value= {{ answers[3] }} >
-                        <label class="afrikaLower"> {{ answers[3] }} </label><br>
+                        <span class="afrikaLower">D</span> <input type="radio" id="114" name="questionData" value= {{ answers[3] }} >
+                        <label class="afrikaLower"> {{ answers[3].lower() }} </label><br>
 
                         <br>
                         
