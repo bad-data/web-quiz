@@ -15,25 +15,25 @@
         
         document.addEventListener("keypress", function(event) {
         if (prev_selected == 0) {
-            if (event.keyCode == 81) {
+            if (event.keyCode == 113) {
               strNum = event.keyCode.toString();
               document.getElementById(strNum).checked = true;
-              prev_selected = 81;
+              prev_selected = 113;
             }
-            else if (event.keyCode == 87) {
+            else if (event.keyCode == 119) {
               strNum = event.keyCode.toString();
               document.getElementById(strNum).checked = true;
-              prev_selected = 87;
+              prev_selected = 119;
             }
-            else if (event.keyCode == 69) {
+            else if (event.keyCode == 101) {
               strNum = event.keyCode.toString();
               document.getElementById(strNum).checked = true;
-              prev_selected = 69;
+              prev_selected = 101;
             }
-            else if (event.keyCode == 82) {
+            else if (event.keyCode == 114) {
               strNum = event.keyCode.toString();
               document.getElementById(strNum).checked = true;
-              prev_selected = 82;
+              prev_selected = 114;
             }
             else if (event.keyCode == 13) {
               strNum = event.keyCode.toString();
@@ -49,21 +49,21 @@
               document.getElementById(strNum2).checked = true;
               prev_selected = event.keyCode;
             }
-            else if (event.keyCode == 87) {
+            else if (event.keyCode == 119) {
               strNum = prev_selected.toString();
               document.getElementById(strNum).checked = false;
               strNum2 = event.keyCode.toString();
               document.getElementById(strNum2).checked = true;
               prev_selected = event.keyCode;
             }
-            else if (event.keyCode == 69) {
+            else if (event.keyCode == 101) {
               strNum = prev_selected.toString();
               document.getElementById(strNum).checked = false;
               strNum2 = event.keyCode.toString();
               document.getElementById(strNum2).checked = true;
               prev_selected = event.keyCode;
             }
-            else if (event.keyCode == 82) {
+            else if (event.keyCode == 104) {
               strNum = prev_selected.toString();
               document.getElementById(strNum).checked = false;
               strNum2 = event.keyCode.toString();
@@ -140,16 +140,16 @@
                     
                         {% endfor %}
                     -->
-                        <input type="radio" id="81" name="questionData" value= {{ answers[0] }} checked>
+                        <input type="radio" id="113" name="questionData" value= {{ answers[0] }} checked>
                         <label class="afrikaLower"> {{ answers[0] }} </label><br>
 
-                        <input type="radio" id="87" name="questionData" value= {{ answers[1] }} >
+                        <input type="radio" id="119" name="questionData" value= {{ answers[1] }} >
                         <label class="afrikaLower"> {{ answers[1] }} </label><br>
 
-                        <input type="radio" id="69" name="questionData" value= {{ answers[2] }} >
+                        <input type="radio" id="101" name="questionData" value= {{ answers[2] }} >
                         <label class="afrikaLower"> {{ answers[2] }} </label><br>
 
-                        <input type="radio" id="82" name="questionData" value= {{ answers[3] }} >
+                        <input type="radio" id="114" name="questionData" value= {{ answers[3] }} >
                         <label class="afrikaLower"> {{ answers[3] }} </label><br>
 
                         <br>
