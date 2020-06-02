@@ -260,17 +260,29 @@ body {
   animation: move 20s infinite linear;
 }
 
-table {
+.resultsTable {
   border-collapse: collapse;
+  font-weight: bold;
+  width:90%;
+  display: none; 
+  margin-left: 35px;
 }
 
-td {
+.resultsTable td {
   border: 1px solid black;
   padding: 8px;
   background-color: white;
 }
 
-th {
+.resultsTable tr:nth-child(even) {
+  background: gray
+}
+
+.resultsTable tr:nth-child(odd) {
+  background: white
+}
+
+.resultsTable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -279,6 +291,10 @@ th {
   border: 1px solid black;
 }
 
+input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
 
 @keyframes move {
 0%, 100% {
